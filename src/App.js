@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Counter from './components/Counter/Counter';
+import BouncingBalls from './components/BouncingBalls/BouncingBalls';
 import './App.css';
 
 function App() {
+  const [ move, setMove ] = useState(false);
+  const [ startBtnLabel, setStartBtnLabel ] = useState(true);
+
+  const handleClickStart = () => {
+    setMove(move => !move);
+    setStartBtnLabel(startBtnLabel => !startBtnLabel);
+  }
+
+  const handleClickReset = () => {
+    setMove(false);
+    setStartBtnLabel(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BouncingBalls className="ballContainer" move={move}/>
+      <Counter 
+        className="counter" 
+        handleClickStart={handleClickStart} 
+        handleClickReset={handleClickReset} 
+        startBtnLabel={startBtnLabel}
+      />
     </div>
   );
 }
