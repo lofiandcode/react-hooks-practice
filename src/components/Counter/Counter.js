@@ -1,5 +1,6 @@
 // importing useState
 import React, { useState } from "react";
+import './Counter.scss'
 
 const Counter= (props) => {
   // state declaration holding [value, updateFunction]
