@@ -15,7 +15,10 @@ const Counter= (props) => {
       <button onClick={() => setCounter(previousCount => previousCount + 1)}>
         Count
       </button>
-      
+      <div className="startGameContainer" >
+        <button >Start Game</button>
+        <button>Reset Game</button>
+      </div>
     </div>
   );
 };
